@@ -1,6 +1,6 @@
-# Scala knowledge sharing demo codes
+# Scala knowledge sharing demo code
 
-This is based on the tutorial [allaboutscala](www.allaboutscala.com). This original repository see [here](https://github.com/nadimbahadoor/allaboutscala).
+This demo is based on the tutorial [allaboutscala](www.allaboutscala.com). This original repository see [here](https://github.com/nadimbahadoor/allaboutscala).
 
 ## demo code
 The demo code is in the [scalademo](https://github.com/ashlee3209/allaboutscala/tree/master/source-code/allaboutscala/src/main/scala/scalademo) directory.
