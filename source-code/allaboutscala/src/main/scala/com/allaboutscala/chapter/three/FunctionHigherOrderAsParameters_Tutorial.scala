@@ -51,6 +51,8 @@ object FunctionHigherOrderAsParameters_Tutorial extends App {
 
 
   println("\nStep 4: How to define and pass a function to a higher order function")
+  // A better approach to Step 3 is to pass-through a common discount function
+  // which would encapsulate the discount logic instead of providing an anonymous function.
   def applyDiscount(totalCost: Double): Double = {
     val discount = 2 // assume you fetch discount from database
     totalCost - discount

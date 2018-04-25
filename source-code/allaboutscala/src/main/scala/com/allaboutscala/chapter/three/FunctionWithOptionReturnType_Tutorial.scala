@@ -25,6 +25,9 @@ object FunctionWithOptionReturnType_Tutorial extends App {
 
 
   println(s"Step 1: Define a function which returns an Option of type String")
+  // Since there may or may not be a daily coupon code available,
+  // it would be a good idea for the users of our dailyCouponCode() function
+  // to be aware explicitly of the possibility that the daily coupon code may be empty.
   def dailyCouponCode(): Option[String] = {
     // look up in database if we will provide our customers with a coupon today
     val couponFromDb = "COUPON_1234"
@@ -48,6 +51,9 @@ object FunctionWithOptionReturnType_Tutorial extends App {
 
 
   println(s"\nStep 4: Call function with Option return type using map")
+  // When using the getOrElse() function or pattern matching on a function which returns an Option,
+  // you will need to provide the default or None case.
+  //However, if you only care about valid values from the Option, you can use the map() function
   dailyCouponCode().map(couponCode => println(s"Today's coupon code = $couponCode"))
 
 

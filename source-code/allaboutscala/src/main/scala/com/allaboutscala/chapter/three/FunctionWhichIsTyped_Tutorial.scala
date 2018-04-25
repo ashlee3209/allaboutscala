@@ -45,6 +45,7 @@ object FunctionWhichIsTyped_Tutorial extends App {
 
 
   println("\nStep 4: How to define a generic typed function which will specify the type of its parameter")
+  // we will create a typed function which will specify a generic parameter of type T as follows:
   def applyDiscount[T](discount: T) {
     discount match {
       case d: String =>

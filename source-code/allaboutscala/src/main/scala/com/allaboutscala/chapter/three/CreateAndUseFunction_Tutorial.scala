@@ -25,6 +25,8 @@ object CreateAndUseFunction_Tutorial extends App {
 
 
   println("Step 1: How to define and use a function which has a return type")
+  // def <functionName>(<parameters>): <ReturnType> = {}
+  // The last line within the body of the function is the one that will be returned back to the caller.
   def favoriteDonut(): String = {
     "Glazed Donut"
   }
@@ -35,6 +37,9 @@ object CreateAndUseFunction_Tutorial extends App {
 
 
   println("\nStep 2: How to define and use a function with no parenthesis")
+  // In general, you should define your functions without parenthesis
+  // if you are defining a function that does not have any side effects.
+  // Limit its usage to pure and simple functions only!
   def leastFavoriteDonut = "Plain Donut"
   println(s"My least favorite donut is $leastFavoriteDonut")
 
@@ -50,6 +55,8 @@ object CreateAndUseFunction_Tutorial extends App {
 
 
   println("\nStep 4: Use type inference to define function with no return type")
+  // No the parenthesis () when calling the function printReport.
+  // This feature becomes more useful and concise as you get to do function chaining which we will see in upcoming tutorials.
   def printReport {
     // lookup sales data in database and create some report
     println("Printing donut report... done!")

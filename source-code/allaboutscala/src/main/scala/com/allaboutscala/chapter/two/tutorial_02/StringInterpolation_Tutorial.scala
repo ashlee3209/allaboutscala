@@ -45,6 +45,8 @@ object StringInterpolation_Tutorial extends App {
 
 
   println("\nStep 4: Using String interpolation for formatting text")
+  // similar to printf in other languages.
+  // all variable references should be followed by a printf-style format string.
   val donutName: String = "Vanilla Donut"
   val donutTasteLevel: String = "Tasty"
   println(f"$donutName%20s $donutTasteLevel")
@@ -56,11 +58,18 @@ object StringInterpolation_Tutorial extends App {
   println(s"Donut price = $donutPrice")
   println(f"Formatted donut price = $donutPrice%.2f")
 
+  // The f interpolator makes use of the string format utilities available from Java.
+  // The formats allowed after the % character are outlined in the Formatter javadoc.
+  // If there is no % character after a variable definition a formatter of %s (String) is assumed.
 
 
   println("\nStep 6: Using raw interpolation")
+  // The raw String interpolation will allow you to print any symbols within your String.
   println(raw"Favorite donut\t$donutName")
 
 
+  // In addition to the three default string interpolators, users can define their own.
+  // To define our own string interpolation, we simply need to create an implicit class that adds a new method to StringContext.
+  // see https://docs.scala-lang.org/overviews/core/string-interpolation.html#advanced-usage
 
 }

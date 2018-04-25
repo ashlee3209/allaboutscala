@@ -27,11 +27,15 @@ object FunctionByName_Tutorial extends App {
 
 
   println("Step 1: How to define a List with Tuple3 elements")
+  // Let's start by defining a List containing Tuple3 elements
+  // which would represent the name of a donut, the quantity to be purchased and its price.
   val listOrders = List(("Glazed Donut", 5, 2.50), ("Vanilla Donut", 10, 3.50))
 
 
 
   println("\nStep 2: How to define a function to loop through each Tuple3 of the List and calculate total cost")
+  // Assume that your donut store sells donuts worldwide
+  // and as such you need to convert the total cost of buying donuts to the local currency being used.
   def placeOrder(orders: List[(String, Int, Double)])(exchangeRate: Double): Double = {
     var totalCost: Double = 0.0
     orders.foreach {order =>
@@ -50,6 +54,9 @@ object FunctionByName_Tutorial extends App {
 
 
   println("\nStep 4: How to define a call-by-name function")
+  // The call-by-name function parameter exchangeRate: => Double will evaluate any exchangeRate function each time it is called.
+  // This is in contrast to the function defined in Step 2 above which had a call-by-value function parameter for exchange rate.
+  // This meant that any exchange rate passed through would be evaluated only once.
   def placeOrderWithByNameParameter(orders: List[(String, Int, Double)])(exchangeRate: => Double): Double = {
     var totalCost: Double = 0.0
     orders.foreach {order =>
@@ -59,7 +66,6 @@ object FunctionByName_Tutorial extends App {
     }
     totalCost
   }
-
 
 
   println("\nStep 5: Define a simple USD to GBP function")
@@ -73,5 +79,9 @@ object FunctionByName_Tutorial extends App {
 
 
   println("\nStep 6: How to call function with call-by-name parameter")
-  println(s"Total cost of order = £${placeOrderWithByNameParameter(listOrders)(usdToGbp)}")
+  // For each order in the list, a new exchange rate is being created
+  // and that's because the call-by-name function usdToGbp function is being evaluated each time.
+  println(s"By name: Total cost of order = £${placeOrderWithByNameParameter(listOrders)(usdToGbp)}")
+  println()
+  println(s"By value: Total cost of order = £${placeOrder(listOrders)(usdToGbp)}")
 }

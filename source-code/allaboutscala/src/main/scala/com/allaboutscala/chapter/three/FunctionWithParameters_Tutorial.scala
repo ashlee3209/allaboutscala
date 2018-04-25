@@ -24,6 +24,8 @@ package com.allaboutscala.chapter.three
 object FunctionWithParameters_Tutorial extends App {
 
   println("Step 1: How to define function with parameters")
+  // Although we could have leveraged the type inference feature of Scala,
+  // it is a good practice to be explicit about the return types of your function.
   def calculateDonutCost(donutName: String, quantity: Int): Double = {
     println(s"Calculating cost for $donutName, quantity = $quantity")
 
@@ -52,6 +54,7 @@ object FunctionWithParameters_Tutorial extends App {
   println("\nStep 4: How to call a function with parameters that has default values")
   val totalCostWithDiscount = calculateDonutCost("Glazed Donut", 4, "COUPON_12345")
   val totalCostWithoutDiscount = calculateDonutCost("Glazed Donut", 4)
+  // you dont need to use method overloading to achieve the same desired effect.
 
 
 }

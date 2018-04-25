@@ -40,6 +40,8 @@ object FunctionDefinedAsSymbols_Tutorial extends App {
 
 
   println("\nStep 5: How to call a function using the operator style notation")
+  // Calling a function using the operator style is not much different than calling a function except that you do not need to specify the .
+  // Using operator style is more clear when calling functions whose names are just symbols.
   println(s"Calling function - with operator style notation = ${donutCostCalculator - 10.5}")
 }
 
@@ -54,12 +56,17 @@ class DonutCostCalculator {
 
 
   // Step 3: How to define function whose name is just the symbol minus -
+  // Defining a function whose name is a symbol is essentially identical to defining any other functions.
+  // Instead of having a name, the function will be defined with some symbol.
   def -(discount: Double): Double = {
     totalCost - discount
   }
 
 
   // Step 6: How to define function whose name is just the symbol +++
+  // Is +++ clear that we are adding some taxes to the totalCost? Probably not!
+  // While using functions which are defined as symbols can be very powerful,
+  // try not to abuse this feature as shown here.
   def +++(taxAmount: Double): Double = {
     totalCost + taxAmount
   }

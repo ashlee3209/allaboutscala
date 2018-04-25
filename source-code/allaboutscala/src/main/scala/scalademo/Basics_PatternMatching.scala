@@ -1,27 +1,9 @@
-package com.allaboutscala.chapter.two.tutorial_09
+package scalademo
 
-/**
-  * Created by Nadim Bahadoor on 17/06/2016.
-  *
-  *  Tutorial: Learn How To Use Pattern Matching
-  *
-  * [[http://allaboutscala.com/tutorials/chapter-2-learning-basics-scala-programming/scala-tutorial-learn-how-to-use-pattern-matching/ Tutorial]]
-  *
-  * Copyright 2016 Nadim Bahadoor (http://allaboutscala.com)
-  *
-  * Licensed under the Apache License, Version 2.0 (the "License"); you may not
-  * use this file except in compliance with the License. You may obtain a copy of
-  * the License at
-  *
-  *  [http://www.apache.org/licenses/LICENSE-2.0]
-  *
-  * Unless required by applicable law or agreed to in writing, software
-  * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
-  * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
-  * License for the specific language governing permissions and limitations under
-  * the License.
-  */
-object PatternMatching_Tutorial extends App {
+object Basics_PatternMatching extends App {
+
+  // It is a functional feature
+  // similar to switch statements. But, Scala's pattern matching is a lot more powerful!
 
   println("Step 1: Pattern matching 101 - a very basic example")
   // there are no break statements!
@@ -87,6 +69,28 @@ object PatternMatching_Tutorial extends App {
     case price: Long    => "Long"
   }
   println(s"Donut price type = $priceType")
+
+  println("\nStep 7: How to use pattern matching on Tuples")
+  val glazedDonut = ("Glazed Donut", "Very Tasty", 2.50)
+  val strawberryDonut = ("Strawberry Donut", "Very Tasty", 2.50)
+  val plainDonut = ("Plain Donut", "Tasty", 2)
+
+  val donutList = List(glazedDonut, strawberryDonut, plainDonut)
+  val priceOfPlainDonut = donutList.foreach { tuple => {
+    tuple match {
+      case ("Plain Donut", taste, price) => println(s"Donut type = Plain Donut, price = $price")
+      case d if d._1 == "Glazed Donut" => println(s"Donut type = ${d._1}, price = ${d._3}")
+      case _ => None
+    }
+  }
+  }
+
+  println("\nStep 8: A more elegant pattern matching within foreach function")
+  donutList.foreach {
+    case ("Plain Donut", taste, price) => println(s"Donut type = Plain Donut, price = $price")
+    case d if d._1 == "Glazed Donut" => println(s"Donut type = ${d._1}, price = ${d._3}")
+    case _ => None
+  }
 
   // you can think of the Any type similar to the Object class.
   // which is at the root of Scala's type hierarchy as shown per the Scala Documentation.

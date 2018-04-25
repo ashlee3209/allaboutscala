@@ -23,6 +23,9 @@ package com.allaboutscala.chapter.two.tutorial_08
   */
 object WhileLoop_Tutorial extends App {
 
+  // Just a reminder that from a pure functional perspective the use of loop such as the while loop is generally less favoured.
+  //Instead, fold and recursive operations are preferred
+
   println("Step 1: How to use while loop in Scala")
   var numberOfDonutsToBake = 10
   while (numberOfDonutsToBake > 0) {
@@ -33,6 +36,7 @@ object WhileLoop_Tutorial extends App {
 
 
   println("\nStep 2: How to use do while loop in Scala")
+  // any expressions within the do {} will be ran at least once regardless of the condition within the while() clause.
   var numberOfDonutsBaked = 0
   do {
     numberOfDonutsBaked += 1

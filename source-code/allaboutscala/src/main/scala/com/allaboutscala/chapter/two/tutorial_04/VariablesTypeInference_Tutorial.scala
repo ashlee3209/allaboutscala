@@ -27,11 +27,13 @@ object VariablesTypeInference_Tutorial extends App {
   println("Step 1: Immutable variable")
   val donutsToBuy: Int = 5
 
+  // Through type inference, Scala complier is smart enough to figure out that the literal 5 is actually  an Integer.
   val donutsBought = 5
 
 
 
   println("\nStep 2: Scala Types")
+  // redo the data types examples from the tutorial 01
   val donutsBoughtToday = 5
 
   val bigNumberOfDonuts = 100000000L
@@ -53,6 +55,7 @@ object VariablesTypeInference_Tutorial extends App {
 
 
   println("\nStep 3: Using Scala compiler to convert from one data type to another")
+  // However, you should bear in mind that this conversion is fine so long as your resulting type is not lossy, e.g. precision loss.
   val numberOfDonuts: Short = 1
 
   val minimumDonutsToBuy: Int = numberOfDonuts
@@ -60,7 +63,7 @@ object VariablesTypeInference_Tutorial extends App {
 
 
   println("\nStep 4: User driven conversion from one data type to another ")
-  // NB: You cannot convert from an Int to a String
+  // NB: You cannot convert from an Int to a String, type safety.
   // val minimumDonutsToSell: String = numberOfDonuts
 
   val minimumDonutsToSell: String = numberOfDonuts.toString()

@@ -25,6 +25,8 @@ package com.allaboutscala.chapter.two.tutorial_01
 object VariablesBasics_Tutorial extends App {
 
   println("Step 1: Immutable variable")
+
+  // syntax: val <Name of our variable>: <Scala type> = <Some literal>
   val donutsToBuy: Int = 5
 
 //    donutsToBuy = 10 // you will get compile error because donutToBuy is immutable
@@ -38,11 +40,16 @@ object VariablesBasics_Tutorial extends App {
 
 
   println("\nStep 3: lazy initialization")
+  // We've not specified the type of donutService!
+  // However, in this case, the Scala compiler knew that it should be of type String.
+  // This is called type inference which we will see in the upcoming tutorials.
   lazy val donutService = "initialize some donut service"
 
 
 
   println("\nStep 4: Scala Types")
+  // Scala does not have Java's primitives or .NET's built-in types.
+  // Instead, it was designed from the ground up to have a set of classes for representing its supporting types as shown below:
   val donutsBought: Int = 5
 
   val bigNumberOfDonuts: Long = 100000000L
@@ -60,11 +67,17 @@ object VariablesBasics_Tutorial extends App {
   val donutFirstLetter: Char = 'D'
 
   val nothing: Unit = ()
-
+  // Scala also provides a type called Unit.
+  // For now, you can think of the Unit type similar to Java's or .NET's void keyword.
 
 
 
   println("\nStep 5: Declare a variable without initialization")
+  // We've use the wildcard operator _ when defining our variable.
+  // Somewhere later in our code base, we can then assign a String value for our variable which in our case was "Plain Donut" String value.
+  // Now, this may be controversial as you should strive to use the immutable pattern.
+  // As a matter of fact, when you code review some Scala application, you should always look out for code smell such as the use of var!
+  // There are better ways to avoid the use of var which we will see in upcoming tutorials.
   var leastFavoriteDonut: String = _
 
   leastFavoriteDonut = "Plain Donut"

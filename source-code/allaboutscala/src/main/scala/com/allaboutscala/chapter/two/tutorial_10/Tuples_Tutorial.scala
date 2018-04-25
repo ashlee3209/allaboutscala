@@ -38,6 +38,7 @@ object Tuples_Tutorial extends App {
 
 
   println("\nStep 3: Using TupleN classes to store more than 2 data points")
+  // N from 1 to 22.
   val glazedDonut = Tuple3("Glazed Donut", "Very Tasty", 2.50)
   println(s"${glazedDonut._1} taste leve is ${glazedDonut._2} and it's price is ${glazedDonut._3}")
 
@@ -57,9 +58,12 @@ object Tuples_Tutorial extends App {
     }
   }
 
+  // First case: match for Plain Donut and then store the taste and price data points into variables which you can then referenced.
+  // Second case: extracts a local variable named d and will only match on Glazed Donut.
 
 
   println("\nStep 5: Shortcut for creating Tuples")
+  // You can simply enclose your data points within ().
   val chocolateDonut = ("Chocolate Donut", "Very Tasty", 3.0)
   println(s"Chocolate donut taste level = ${chocolateDonut._2}, price = ${chocolateDonut._3}")
 

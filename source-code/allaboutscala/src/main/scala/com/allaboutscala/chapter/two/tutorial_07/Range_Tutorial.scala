@@ -42,6 +42,7 @@ object Range_Tutorial extends App {
 
 
   println("\nStep 4: Create an alphabetical range to represent letter a to z")
+  // We are using single quotes and not double quotes such that we end up with a character range.
   val alphabetRangeFromAToZ = 'a' to 'z'
   println(s"Range of alphabets from a to z = $alphabetRangeFromAToZ")
 
@@ -54,6 +55,7 @@ object Range_Tutorial extends App {
 
 
   println("\nStep 6: Storing our ranges into collections")
+  // The general practice is to skip the () if the function has no side effects.
   val listFrom1To5 = (1 to 5).toList
   println(s"Range to list = ${listFrom1To5.mkString(" ")}")
 
@@ -69,7 +71,7 @@ object Range_Tutorial extends App {
 
 
   // Tip:
-  // - To print every element in the array variable called arrayFrom1To5
+  // - To print every element in the array variable called arrayFrom1To5 using the wildcard _
   arrayFrom1To5.foreach(print(_))
 
 

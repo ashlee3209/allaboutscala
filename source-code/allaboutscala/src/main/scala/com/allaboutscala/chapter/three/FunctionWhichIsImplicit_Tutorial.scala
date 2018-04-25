@@ -34,13 +34,19 @@ object FunctionWhichIsImplicit_Tutorial extends App {
 
 
   println("\nStep 2: How to create an implicit function to convert a String to the wrapper String class")
+  // It is a good practice to encapsulate your implicit functions or conversions into a singleton using object.
+  // You can also make use of package object which we will see in upcoming tutorials.
   object DonutConverstions {
     implicit def stringToDonutString(s: String) = new DonutString(s)
   }
 
+  // Defining an implicit function is similar to defining any other functions
+  // except that we've prefixed the function signature using the implicit keyword.
 
 
   println("\nStep 3: How to import the String conversion so that it is in scope")
+  // As part of the import expression,
+  // we are using the wildcard operator _ which will import any values or implicit functions.
   import DonutConverstions._
 
 
@@ -54,4 +60,8 @@ object FunctionWhichIsImplicit_Tutorial extends App {
   println("\nStep 5: How to access the custom String function called isFavaoriteDonut")
   println(s"Is Glazed Donut my favorite Donut  = ${glazedDonut.isFavoriteDonut}")
   println(s"Is Vanilla Donut my favorite Donut = ${vanillaDonut.isFavoriteDonut}")
+
+  // The custom isFavoriteDonut() function looks built-into the String class.
+  // However, we did not have to manually modify the source code of the String class.
+  // Instead, we've used the secret powers of Scala's implicit function to extend the String class.
 }

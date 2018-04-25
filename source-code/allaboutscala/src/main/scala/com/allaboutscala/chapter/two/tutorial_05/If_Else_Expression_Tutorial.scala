@@ -55,7 +55,14 @@ object If_Else_Expression_Tutorial extends App {
 
 
   println("\nStep 4: Using if and else clause as expression")
+  // What if you had to store the result of the if and else expressions above into a variable.
+  // With Scala, you can easily inline this as follows:
   val numberOfDonutsToBuy = if(numberOfPeople > 10) (numberOfPeople * donutsPerPerson) else defaultDonutsToBuy
   println(s"Number of donuts to buy = $numberOfDonutsToBuy")
+
+  // Similar in Java: Object bar = foo.isSelected() ? foo : baz;
+  // but much easier to read and less error prone
+
+  // pattern matching more popular than if and else expressions.
 
 }

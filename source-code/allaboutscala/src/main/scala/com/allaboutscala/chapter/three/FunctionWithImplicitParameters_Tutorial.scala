@@ -23,7 +23,11 @@ package com.allaboutscala.chapter.three
   */
 object FunctionWithImplicitParameters_Tutorial extends App {
 
+  // The use of implicit parameters is just one example of how dependency injection can be achieved in Scala.
+
   println(s"Step 1: How to define a function with an implicit parameter")
+  // The implicit parameter discount of type Double is defined using the keyword implicit within parenthesis after your usual function parameters.
+  // This means that the totalCost() function will require an implicit value of type Double to be in scope as defined in Step 2 below.
   def totalCost(donutType: String, quantity: Int)(implicit discount: Double): Double = {
     println(s"Calculating the price for $quantity $donutType")
     val totalCost = 2.50 * quantity * (1 - discount)
@@ -39,6 +43,9 @@ object FunctionWithImplicitParameters_Tutorial extends App {
 
 
   println("\nStep 3: How to call a function which has an implicit parameter")
+  // You did not have to manually pass-through the discount value when calling the totalCost() function.
+  // The Scala compiler will look for an implicit value of type Double for the discount implicit parameter which you've defined in Step 2.
+  // If there are no implicit values in scope, you will get a compiler error.
   println(s"""Total cost with discount of 5 Glazed Donuts = ${totalCost("Glazed Donut", 5)}""")
 
 
@@ -61,4 +68,5 @@ object FunctionWithImplicitParameters_Tutorial extends App {
   println("\nStep 6: How to manually pass-through implicit parameters")
   println(s"""Total cost with discount of 5 Glazed Donuts, manually passed-through = ${totalCost2("Glazed Donut", 5)(0.1, "Scala Donut Store")}""")
 
+  // It is a good practice to encapsulate your implicit values into an Object or a Package Object.
 }

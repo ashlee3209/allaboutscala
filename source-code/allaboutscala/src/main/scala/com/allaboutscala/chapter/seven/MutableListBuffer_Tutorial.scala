@@ -35,13 +35,9 @@ object MutableListBuffer_Tutorial extends App {
   println(s"Element at index 1 = ${listBuffer1(1)}")
   println(s"Element at index 2 = ${listBuffer1(2)}")
 
-
-
   println("\nStep 3: How to add elements to a ListBuffer using +=")
   listBuffer1 += "Vanilla Donut"
   println(s"Elements of listBuffer1 = $listBuffer1")
-
-
 
   println("\nStep 4: How to add elements from a List to a ListBuffer using ++=")
   listBuffer1 ++= List[String]("Glazed Donut", "Krispy creme")

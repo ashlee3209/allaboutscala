@@ -25,6 +25,7 @@ object ForLoop_Tutorial extends App {
 
 
   println("Step 1: A simple for loop from 1 to 5 inclusive")
+  // We used the keyword to which meant that iteration number 5 was included.
   for(numberOfDonuts <- 1 to 5){
     println(s"Number of donuts to buy = $numberOfDonuts")
   }
@@ -32,6 +33,7 @@ object ForLoop_Tutorial extends App {
 
 
   println("\nStep 2: A simple for loop from 1 to 5, where 5 is NOT inclusive")
+  // We used of keyword until which meant that the iteration number 5 was NOT included.
   for(numberOfDonuts <- 1 until 5){
     println(s"Number of donuts to buy = $numberOfDonuts")
   }
@@ -39,21 +41,33 @@ object ForLoop_Tutorial extends App {
 
 
   println("\nStep 3: Filter values using if conditions in for loop")
+  // We loop through each ingredient in the list and filter out all items except for the "sugar" item.
   val donutIngredients = List("flour", "sugar", "egg yolks", "syrup", "flavouring")
   for(ingredient <- donutIngredients if ingredient == "sugar"){
     println(s"Found sweetening ingredient = $ingredient")
   }
+  // you dont need the new keyword when declaring the List object.
+  // companion objects which we will see in upcoming tutorials.
+  // We used the if expression within the for loop itself!
+  // There are however better ways at filtering out items from collections which we will see in upcoming tutorials.
 
 
 
   println("\nStep 4: Filter values using if conditions in for loop and return the result back using the yield keyword")
+  // filter for either "sugar" or "syrup" ingredients in our donutsIngredients list.
+  // Instead of using the (), we are using the {} in our for comprehension to make our expressions more explicit.
+  // In addition, to return the result of the for comprehension
+  // and store it in the sweeteningIngredients variable, we will make use of the yield keyword.
   val sweeteningIngredients = for {
     ingredient <- donutIngredients
     if (ingredient == "sugar" || ingredient == "syrup")
   } yield ingredient
   println(s"Sweetening ingredients = $sweeteningIngredients")
 
-
+  println("\nfor loop with yield actually is converted into a call to map")
+  val sweeteningIngredientsUsingMap = donutIngredients.withFilter(ingredient => (ingredient == "sugar" || ingredient == "syrup")).
+          map(ingredient => ingredient)
+  println(s"Sweetening ingredients using map function = $sweeteningIngredientsUsingMap")
 
   println("\nStep 5: Using for comprehension to loop through 2-Dimensional array")
   val twoDimensionalArray = Array.ofDim[String](2,2)
@@ -66,6 +80,11 @@ object ForLoop_Tutorial extends App {
         y <- 0 until 2
   } println(s"Donut ingredient at index ${(x,y)} = ${twoDimensionalArray(x)(y)}")
 
-
+  println("\nthis is converted into calls to flatMap followed by a map")
+  (0 until 2).flatMap {
+    x => (0 until 2).map {
+      y => println(s"Donut ingredient at index ${(x,y)} = ${twoDimensionalArray(x)(y)}")
+    }
+  }
 
 }
