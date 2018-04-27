@@ -85,9 +85,11 @@ object TraitPart1 extends App {
 
   println("\nStep 5: Create a trait which will act as a facade which extends multiple traits namely trait DonutShoppingCartDao and trait DonutInventoryService. It also inject the correct DonutDatabase implementation - a CassandraDonutStore")
   // extend multiple staff with with keyword
+  // you can only have one super class: DonutShoppingCartDao
   // use override val keywords to inject a CassandraDonutStore instance
   // facade: DonutShoppingCartServices[A]
   // facade design pattern: https://sourcemaking.com/design_patterns/facade
+  // Facade discusses encapsulating a complex subsystem within a single interface object.
   trait DonutShoppingCartServices[A] extends DonutShoppingCartDao[A] with DonutInventoryService[A] {
     override val donutDatabase: DonutDatabase[A] = new CassandraDonutStore[A]()
   }

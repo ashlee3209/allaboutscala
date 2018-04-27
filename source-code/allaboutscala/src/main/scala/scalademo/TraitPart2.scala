@@ -26,7 +26,7 @@ package scalademo
 object TraitPart2 extends App {
 
   // try to avoid cake pattern in scala
-  // what is cake pattern?
+  // what is cake pattern? TODO:
   // https://coderwall.com/p/t_rapw/cake-pattern-in-scala-self-type-annotations-explicitly-typed-self-references-explained
   println("Step 1: How to define a class to encapsulate inventory services")
   class DonutInventoryService[T] {
@@ -113,6 +113,9 @@ object TraitPart2 extends App {
 
 
   println("\nStep 9: Test DonutStoreApp by injecting a mocked version of DonutStoreServices")
+  // You may be asking yourself why did we go through all the trouble of having a single facade?
+  // One of the most obvious benefit is to make our DonutStoreApp easily testable.
+  // All you need to do is to create a trait which will mock the DonutStoreServices.
   trait MockedDonutStoreServices extends DonutStoreServices {
     override val donutInventoryService: DonutInventoryService[String] = ???
     override val donutPricingService: DonutPricingService[String] = ???
@@ -121,9 +124,11 @@ object TraitPart2 extends App {
       donutInventoryService, donutPricingService, donutOrderService)
   }
 
+  // ??? a handy method that you dont know yet.
+  // it will throw run time exception if you call it.
 
 
-  println("\nStep 1: Create a Mocked Donut Store App and inject mocked donut services")
+  println("\nStep 10: Create a Mocked Donut Store App and inject mocked donut services")
   object MockedDonutStoreApp extends DonutStoreAppController with MockedDonutStoreServices
 
 }

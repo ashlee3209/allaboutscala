@@ -127,6 +127,4 @@ object HigherOrderFunctions extends App {
     println("Sending email wrapped in Some() ... finished")
   ))
 
-
-  // TODO: explain map, flatmap, fold etc. higher order functions
 }

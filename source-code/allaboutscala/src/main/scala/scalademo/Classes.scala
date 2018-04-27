@@ -53,6 +53,7 @@ object Classes extends App {
 
   println("\n2-1: How to create instances of the Donut class using the companion object")
   // you can now create instances of the Donut class without having to use the new keyword.
+  // Donut.apply("Glazed Donut", 1111)
   val glazedDonutO = Donut("Glazed Donut", 1111)
   val vanillaDonutO = Donut("Vanilla Donut", 2222)
 
@@ -85,6 +86,7 @@ object Classes extends App {
   }
 
   // call the apply factory method of the companion object same as call the companion object
+  // not just for factory methods
   val glazedDonut2 = Donut2("Glazed Donut")
   println(s"The class type of glazedDonut = ${glazedDonut2.getClass}")
   glazedDonut2.print
@@ -102,6 +104,7 @@ object Classes extends App {
   }
 
   // Declare the uuid as a private value in the companion object which can be accessed in the class.
+  // You can have mutilple apply methods.
   object Donut4 {
 
     private val uuid = 1 // we've declared a uuid value and it is also marked as private.
@@ -121,6 +124,12 @@ object Classes extends App {
 
   glazedDonut4.print
   vanillaDonut4.print
+
+  // apply: make any method call look like a function call
+  // val add = new Adder()
+  // Adder class has an apply method.
+  // add(1,3)
+  // call it like a function
 
   println("\n5. Case classes")
   // A case class is similar to any other classes except that it also creates the Companion Object.
@@ -152,7 +161,6 @@ object Classes extends App {
   println(s"Chocolate And Vanilla Donut = $chocolateVanillaDonut")
 
   println("\n6. Type alias")
-  // TODO: remove?
   println("\n6-1: Use type alias to name a Tuple2 pair into a domain type called CartItem")
   type CartItem[DonutCase, Int] = (DonutCase, Int)
 
