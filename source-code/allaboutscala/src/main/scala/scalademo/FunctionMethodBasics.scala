@@ -8,6 +8,7 @@ object FunctionMethodBasics extends App {
   // Expressions are units of code that return a value
   // Statements are units of code that do not return a value
   // Scala prefer expressions.
+  1 + 1
   println("""1 + 1""")
   println(s"The result is ${1+1}")
 
@@ -194,6 +195,7 @@ object FunctionMethodBasics extends App {
   }
 
   // call it
+  println()
   println(s"Result of applyDiscountWithReturnType with String parameter = ${applyDiscountWithReturnType[String]("COUPON_123")}")
   println()
   println(s"Result of applyDiscountWithReturnType with Double parameter = ${applyDiscountWithReturnType[Double](10.5)}")
@@ -201,7 +203,6 @@ object FunctionMethodBasics extends App {
   println(s"Result of applyDiscountWithReturnType with Char parameter = ${applyDiscountWithReturnType[Char]('U')}")
 
   println("\n6. Multiple parameter list (currying)")
-  // TODO: add more from other couses
   println("6-1: Curried parameter groups")
   // Functions defined with parameter groups are also commonly referred to as curried functions.
   def totalCost(donutType: String)(quantity: Int)(discount: Double): Double = {

@@ -60,13 +60,13 @@ object Basics_PatternMatching extends App {
   println("\nStep 6: Pattern matching by types")
   val priceOfDonut: Any = 2.50
   val priceType = priceOfDonut match {
-    case price: Int     => "Int"
-    case price: Double  => "Double"
-    case price: Float   => "Float"
-    case price: String  => "String"
-    case price: Boolean => "Boolean"
-    case price: Char    => "Char"
-    case price: Long    => "Long"
+    case _: Int     => "Int"
+    case _: Double  => "Double"
+    case _: Float   => "Float"
+    case _: String  => "String"
+    case _: Boolean => "Boolean"
+    case _: Char    => "Char"
+    case _: Long    => "Long"
   }
   println(s"Donut price type = $priceType")
 

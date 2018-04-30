@@ -64,7 +64,6 @@ object FunctionOthers extends App {
   val notFound = search("Chocolate Donut", arrayDonuts, 0)
   println(s"Find Chocolate Donut = $notFound")
 
-
   println("\n2-2: Using scala.util.control.TailCalls._")
   def tailSearch(donutName: String, donuts: Array[String], index: Int): TailRec[Option[Boolean]] = {
     if(donuts.length == index) {

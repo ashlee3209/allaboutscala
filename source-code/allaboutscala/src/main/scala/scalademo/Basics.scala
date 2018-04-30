@@ -4,7 +4,6 @@ object Basics extends App {
   // The App trait encapsulates the main function and more!
   // by extending the App trait, we dont need to define the main function.
 
-
   println("1. Variables and Values")
 
   println("\n1-1. Mutable variable")
@@ -15,10 +14,12 @@ object Basics extends App {
 
   // syntax: val <Name of our variable>: <Scala type> = <Some literal>
   val donutsToBuy: Int = 5
-  //donutsToBuy = 10
+  // donutsToBuy = 10
   // you will get compile error because donutToBuy is immutable
 
   println("\n2: String interpolation")
+  // prefix s, f, raw
+
   println(s"My favorite donut = $favoriteDonut")
 
   println("\n2-1: Using String interpolation for formatting text")
@@ -76,7 +77,7 @@ object Basics extends App {
   println(s"donutJson5 = $donutJson4")
 
   println("\n4: Types Inference")
-  // Through type inference, Scala complier is smart enough to figure out that the literal 5 is actually  an Integer.
+  // Through type inference, Scala comelier is smart enough to figure out that the literal 5 is actually  an Integer.
   // Try in REPL, it will tell you the type.
   val donutsBoughtToday = 5
 
@@ -180,4 +181,5 @@ object Basics extends App {
   val chocolateDonut = ("Chocolate Donut", "Very Tasty", 3.0)
   println(s"Chocolate donut taste level = ${chocolateDonut._2}, price = ${chocolateDonut._3}")
 
+  println(s"${glazedDonut.productElement(2)}")
 }
